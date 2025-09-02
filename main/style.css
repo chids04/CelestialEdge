@@ -289,42 +289,18 @@ header:hover {
   font-weight: bold;
   text-align: center;
   margin-bottom: 50px;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.why:hover {
-  transform: scale(1.05);
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
-
-.why::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
-  transition: width 0.3s ease;
-}
-
-.why:hover::after {
-  width: 100px;
 }
 
 .why-content {
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: 40px;
   max-width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .whyimg {
-  flex: 1;
+  flex: 0 0 auto;
   max-width: 500px;
   height: auto;
   transition: all 0.3s ease;
@@ -339,15 +315,11 @@ header:hover {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.whyimg:hover {
-  transform: scale(1.05) rotate(2deg);
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
-  background: rgba(0, 0, 0, 0.3);
-}
+
 
 .why-text-content {
-  flex: 1.5;
-  max-width: 800px;
+  flex: 1;
+  max-width: none;
   position: relative;
   z-index: 2;
   background: rgba(0, 0, 0, 0.3);
@@ -362,16 +334,6 @@ header:hover {
   line-height: 1.6;
   margin-bottom: 20px;
   font-family: 'Helvetica', 'Arial', sans-serif;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.whytext:hover, .sectext:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .firlist {
@@ -404,49 +366,8 @@ header:hover {
 
 .firlist li {
   margin-bottom: 15px;
-  opacity: 0;
-  transform: translateX(-20px);
-  animation: slideInLeft 0.6s ease-out forwards;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
   padding: 10px 10px 10px 30px;
-  border-radius: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.firlist li:nth-child(1) { animation-delay: 0.1s; }
-.firlist li:nth-child(2) { animation-delay: 0.2s; }
-.firlist li:nth-child(3) { animation-delay: 0.3s; }
-.firlist li:nth-child(4) { animation-delay: 0.4s; }
-.firlist li:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.firlist li:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateX(10px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.firlist li::before {
-  content: '✨';
-  position: absolute;
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.firlist li:hover::before {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.2);
 }
 
 .join_now.third {
