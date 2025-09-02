@@ -34,19 +34,26 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Sign Up Section -->
-        <section class="signup-section">
-            <div class="signup-content">
-                <div class="signup-text">
-                    <div class="signup-header">
-                        <div class="signup-line">Join the</div>
-                        <div class="strokemore">Celestial Edge</div>
-                        <div class="signup-line">Revolution</div>
+        <!-- Auth Section -->
+        <section class="auth-section">
+            <div class="auth-content">
+                <div class="auth-text">
+                    <div class="auth-header">
+                        <div class="auth-line">Join the</div>
+                        <div class="strokemore">CelestialE</div>
+                        <div class="auth-line">Revolution</div>
                     </div>
-                    <p class="signup-description">Be among the first to experience the future of NFTs. Sign up now and unlock exclusive early adopter benefits, including free airdrops and lifetime marketplace discounts.</p>
+                    <p class="auth-description">Be among the first to experience the future of NFTs. Sign up now and unlock exclusive early adopter benefits, including free airdrops and lifetime marketplace discounts.</p>
                 </div>
-                <div class="signup-form-container">
-                    <form class="signup-form" id="signupForm">
+                <div class="auth-form-container">
+                    <!-- Tab Navigation -->
+                    <div class="auth-tabs">
+                        <button class="tab-button active" data-tab="signup">Sign Up</button>
+                        <button class="tab-button" data-tab="login">Log In</button>
+                    </div>
+                    
+                    <!-- Sign Up Form -->
+                    <form class="auth-form active" id="signupForm" data-tab="signup">
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" id="username" name="username" required placeholder="Enter your username">
@@ -77,39 +84,32 @@
                             <label for="newsletter">Subscribe to our newsletter for updates and exclusive offers</label>
                         </div>
                         
-                        <button type="submit" class="signup-button">Create Account</button>
+                        <button type="submit" class="auth-button">Create Account</button>
                     </form>
                     
-                    <div class="signup-footer">
-                        <p>Already have an account? <a href="#" class="login-link">Sign In</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section class="benefits-section">
-            <h2 class="benefits-title">What You'll Get</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎁</div>
-                    <h3>Free Airdrops</h3>
-                    <p>Receive exclusive NFTs before our marketplace launch</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Lifetime Discounts</h3>
-                    <p>Enjoy reduced fees forever as an early adopter</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🚀</div>
-                    <h3>Early Access</h3>
-                    <p>Test new features before anyone else</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">👑</div>
-                    <h3>VIP Status</h3>
-                    <p>Get priority support and exclusive perks</p>
+                    <!-- Log In Form -->
+                    <form class="auth-form" id="loginForm" data-tab="login">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" name="loginEmail" required placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="loginPassword" required placeholder="Enter your password">
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <label for="rememberMe">Remember me</label>
+                        </div>
+                        
+                        <button type="submit" class="auth-button">Log In</button>
+                        
+                        <div class="forgot-password">
+                            <a href="#" class="forgot-link">Forgot Password?</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -119,23 +119,70 @@
     <footer></footer>
 
     <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-          e.preventDefault();
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing tabs...');
             
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+            // Tab switching functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const authForms = document.querySelectorAll('.auth-form');
             
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
+            console.log('Found tab buttons:', tabButtons.length);
+            console.log('Found auth forms:', authForms.length);
             
-            // Here you would typically send the form data to your backend
-            alert('Account created successfully! Welcome to Celestial Edge!');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    console.log('Tab clicked:', targetTab);
+                    
+                    // Remove active class from all buttons and forms
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    authForms.forEach(form => form.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding form
+                    button.classList.add('active');
+                    const targetForm = document.querySelector(`[data-tab="${targetTab}"]`);
+                    if (targetForm) {
+                        targetForm.classList.add('active');
+                        console.log('Switched to form:', targetTab);
+                    } else {
+                        console.error('Target form not found for tab:', targetTab);
+                    }
+                });
+            });
             
-            // Reset form
-            this.reset();
-        });  
+            // Sign up form submission
+            document.getElementById('signupForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+                
+                // Here you would typically send the form data to your backend
+                alert('Account created successfully! Welcome to Celestial Edge!');
+                
+                // Reset form
+                this.reset();
+            });
+            
+            // Log in form submission
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the form data to your backend
+                alert('Login successful! Welcome back to Celestial Edge!');
+                
+                // Reset form
+                this.reset();
+            });
+            
+            console.log('Tab functionality initialized successfully');
+        });
     </script>
 </body>
 

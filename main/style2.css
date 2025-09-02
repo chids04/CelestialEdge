@@ -1,14 +1,14 @@
-/* Sign Up Page Specific Styles */
+/* Authentication Page Specific Styles */
 
-/* Sign Up Section */
-.signup-section {
+/* Auth Section */
+.auth-section {
     padding: 120px 0 70px 0;
     min-height: 80vh;
     display: flex;
     align-items: center;
 }
 
-.signup-content {
+.auth-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,16 +18,16 @@
     padding: 0 70px;
 }
 
-.signup-text {
+.auth-text {
     flex: 1;
     max-width: 500px;
 }
 
-.signup-header {
+.auth-header {
     margin-bottom: 30px;
 }
 
-.signup-line {
+.auth-line {
     font-size: 42px;
     font-weight: bold;
     line-height: 1.2;
@@ -36,7 +36,7 @@
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
-.signup-description {
+.auth-description {
     font-size: 18px;
     line-height: 1.6;
     color: white;
@@ -46,7 +46,7 @@
 }
 
 /* Form Container */
-.signup-form-container {
+.auth-form-container {
     flex: 1;
     max-width: 500px;
     background: rgba(0, 0, 0, 0.8);
@@ -61,7 +61,7 @@
     overflow: hidden;
 }
 
-.signup-form-container::before {
+.auth-form-container::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -73,10 +73,53 @@
     pointer-events: none;
 }
 
-/* Form Elements */
-.signup-form {
+/* Tab Navigation */
+.auth-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 5px;
     position: relative;
     z-index: 2;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.tab-button.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tab-button:hover:not(.active) {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Form Elements */
+.auth-form {
+    position: relative;
+    z-index: 2;
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
 }
 
 .form-group {
@@ -146,19 +189,34 @@
     cursor: pointer;
 }
 
-.terms-link, .login-link {
+.terms-link, .forgot-link {
     color: #ff6b6b;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.terms-link:hover, .login-link:hover {
+.terms-link:hover, .forgot-link:hover {
     color: #ff8e8e;
     text-decoration: underline;
 }
 
-/* Sign Up Button */
-.signup-button {
+/* Forgot Password Link */
+.forgot-password {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgot-password .forgot-link {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.forgot-password .forgot-link:hover {
+    color: #ff6b6b;
+}
+
+/* Auth Button */
+.auth-button {
     width: 100%;
     padding: 18px 30px;
     border: none;
@@ -176,7 +234,7 @@
     margin-top: 20px;
 }
 
-.signup-button::after {
+.auth-button::after {
     content: "";
     z-index: -1;
     position: absolute;
@@ -188,7 +246,7 @@
     border-radius: 12px;
 }
 
-.signup-button::before {
+.auth-button::before {
     content: "";
     background: linear-gradient(
         45deg,
@@ -209,172 +267,66 @@
     opacity: 0;
 }
 
-.signup-button:hover::before {
+.auth-button:hover::before {
     opacity: 1;
 }
 
-.signup-button:hover {
+.auth-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
 }
 
-.signup-button:active::after {
+.auth-button:active::after {
     background: transparent;
 }
 
-.signup-button:active {
+.auth-button:active {
     color: #000;
     font-weight: bold;
 }
 
-/* Sign Up Footer */
-.signup-footer {
-    text-align: center;
-    margin-top: 25px;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.signup-footer p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-}
-
-/* Benefits Section */
-.benefits-section {
-    padding: 80px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 70px;
-    padding-right: 70px;
-}
-
-.benefits-title {
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 50px;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    position: relative;
-}
-
-.benefits-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.benefit-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.benefit-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.benefit-card:hover::before {
-    left: 100%;
-}
-
-.benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.benefit-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.benefit-card h3 {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-}
-
-.benefit-card p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    line-height: 1.5;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-    .signup-content {
+    .auth-content {
         flex-direction: column;
         text-align: center;
         gap: 50px;
         padding: 0 20px;
     }
     
-    .signup-text {
+    .auth-text {
         max-width: 100%;
     }
     
-    .signup-line {
+    .auth-line {
         font-size: 32px;
     }
     
-    .signup-form-container {
+    .auth-form-container {
         max-width: 100%;
         padding: 30px 20px;
     }
     
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .auth-tabs {
+        margin-bottom: 25px;
     }
     
-    .benefits-section {
-        padding-left: 20px;
-        padding-right: 20px;
+    .tab-button {
+        padding: 12px 15px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
-    .signup-section {
+    .auth-section {
         padding: 100px 0 50px 0;
     }
     
-    .signup-content {
+    .auth-content {
         padding: 0 15px;
     }
     
-    .signup-form-container {
+    .auth-form-container {
         padding: 25px 15px;
     }
     
@@ -385,8 +337,13 @@
         font-size: 14px;
     }
     
-    .signup-button {
+    .auth-button {
         padding: 15px 25px;
         font-size: 16px;
+    }
+    
+    .tab-button {
+        padding: 10px 12px;
+        font-size: 13px;
     }
 }
