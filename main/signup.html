@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Celestial Edge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@200;300;400;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="toplabels">
+            <div class="nav-links">
+                <div class="label">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">HOME</a>
+                </div>
+            </div>
+            <div class="main_name">Celestial Edge</div>
+            <div class="topbutton">
+                <a href="index.html">
+                    <button class="join_now">Back to Home</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Sign Up Section -->
+        <section class="signup-section">
+            <div class="signup-content">
+                <div class="signup-text">
+                    <div class="signup-header">
+                        <div class="signup-line">Join the</div>
+                        <div class="strokemore">Celestial Edge</div>
+                        <div class="signup-line">Revolution</div>
+                    </div>
+                    <p class="signup-description">Be among the first to experience the future of NFTs. Sign up now and unlock exclusive early adopter benefits, including free airdrops and lifetime marketplace discounts.</p>
+                </div>
+                <div class="signup-form-container">
+                    <form class="signup-form" id="signupForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required placeholder="Enter your username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required placeholder="Create a strong password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Subscribe to our newsletter for updates and exclusive offers</label>
+                        </div>
+                        
+                        <button type="submit" class="signup-button">Create Account</button>
+                    </form>
+                    
+                    <div class="signup-footer">
+                        <p>Already have an account? <a href="#" class="login-link">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <h2 class="benefits-title">What You'll Get</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎁</div>
+                    <h3>Free Airdrops</h3>
+                    <p>Receive exclusive NFTs before our marketplace launch</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Lifetime Discounts</h3>
+                    <p>Enjoy reduced fees forever as an early adopter</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Early Access</h3>
+                    <p>Test new features before anyone else</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👑</div>
+                    <h3>VIP Status</h3>
+                    <p>Get priority support and exclusive perks</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // Here you would typically send the form data to your backend
+            alert('Account created successfully! Welcome to Celestial Edge!');
+            
+            // Reset form
+            this.reset();
+        });  
+    </script>
+</body>
+
+</html>
