@@ -27,64 +27,7 @@
       font-family: "Poppins", sans-serif;
     }
 
-    /* Navigation Bar Styles */
-    .signup-nav {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      right: 20px;
-      z-index: 1000;
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    }
 
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-      padding: 20px;
-    }
-
-    .nav-link {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 500;
-      padding: 10px 20px;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .nav-link:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-logout {
-      background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .nav-logout:hover {
-      background: linear-gradient(135deg, #ff5252, #d32f2f);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-    }
 
     @property --a {
       syntax: "<angle>";
@@ -834,19 +777,10 @@
   </script>
 </head>
 
-<body>
-  <!-- Navigation Bar -->
-  <nav class="signup-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="dashboard.html" id="dashboard-link" class="nav-link" style="display: none;">Dashboard</a>
-      <button class="nav-logout" id="logout-btn" onclick="logout()" style="display: none;">Logout</button>
-    </div>
-  </nav>
-
-  <a href="index.html" class="back-home">
+  <body>
+    <a href="index.html" class="back-home">
     <i class="fas fa-arrow-left"></i>
-    Back to Home
+    Back to Homepage
   </a>
   <div class="grow-ans" style="--d:1.2s">
     <div class="flower__g-long">
@@ -1342,31 +1276,7 @@
       try { const res = await signInWithPopup(auth, provider); await afterGoogle(res.user); } catch (e) { showToast(e.message, true); }
     });
 
-    // Auth state redirect example
-    onAuthStateChanged(auth, (u) => {
-      const dashboardLink = document.getElementById('dashboard-link');
-      const logoutBtn = document.getElementById('logout-btn');
-
-      if (u) {
-        // User is signed in
-        dashboardLink.style.display = 'inline-block';
-        logoutBtn.style.display = 'inline-block';
-      } else {
-        // User is signed out
-        dashboardLink.style.display = 'none';
-        logoutBtn.style.display = 'none';
-      }
-    });
-
-    // Logout function
-    function logout() {
-      auth.signOut().then(() => {
-        // Redirect to signup page after logout
-        window.location.href = 'signup.html';
-      }).catch((error) => {
-        console.error('Error signing out:', error);
-      });
-    }
+    
   </script>
 </body>
 
