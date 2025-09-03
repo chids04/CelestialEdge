@@ -27,9 +27,14 @@
             </div>
             <div class="main_name">CelestialE</div>
             <div class="topbutton">
-                <a href="signup.html">
+                <a href="signup.html" id="auth-button">
                     <button class="join_now">Join Now</button>
                 </a>
+                <a href="dashboard.html" id="dashboard-button" style="display: none;">
+                    <button class="join_now">Dashboard</button>
+                </a>
+                <button class="join_now logout-btn" id="logout-button" onclick="logout()"
+                    style="display: none;">Logout</button>
             </div>
         </nav>
     </header>
@@ -88,7 +93,8 @@
             <h2 class="why accent">The Journey Has Begun — And You’re Invited</h2>
             <div class="why-text-content">
                 <div class="chip"><i class="fas fa-bolt"></i> Powered by Polygon</div>
-                <p class="whytext lead">We’re crafting something extraordinary—a premium, curated NFT marketplace powered by
+                <p class="whytext lead">We’re crafting something extraordinary—a premium, curated NFT marketplace
+                    powered by
                     Polygon, designed to redefine how you discover and collect digital art. Though the gallery doors
                     aren’t open just yet, our vision is already taking shape.</p>
                 <hr class="section-divider" />
@@ -102,7 +108,8 @@
                 <p class="sectext">We’re creating a legacy—a realm where rarity meets ease, where curated excellence
                     thrives, and where you belong. Your journey into this new world begins with a simple step: joining
                     us today.</p>
-                <p class="sectext" style="font-weight: 600;">Beyond Art, Beyond Imagination—NFTs Redefine Value. Join early or watch the future pass you by.</p>
+                <p class="sectext" style="font-weight: 600;">Beyond Art, Beyond Imagination—NFTs Redefine Value. Join
+                    early or watch the future pass you by.</p>
                 <a href="signup.html"><button class="join_now third">Get Early Access</button></a>
             </div>
         </section>
@@ -128,25 +135,25 @@
             <div class="footer-header">
                 <h3>Connect With Us:</h3>
             </div>
-                         <div class="footer-main">
-                 <div class="social-links">
-                     <a href="mailto:contact@celestialedge.com" class="social-link">
-                         <i class="fas fa-envelope"></i>
-                         <span>contact@celestiale.com</span>
-                     </a>
-                     <a href="#" class="social-link">
-                         <i class="fab fa-instagram"></i>
-                         <span>@celestiale</span>
-                     </a>
-                     <a href="#" class="social-link">
-                         <i class="fab fa-discord"></i>
-                         <span>Join Our Discord</span>
-                     </a>
-                 </div>
-             </div>
-             <div class="footer-bottom">
-                 <p>&copy; 2025 CelestialE. All rights reserved.</p>
-             </div>
+            <div class="footer-main">
+                <div class="social-links">
+                    <a href="mailto:contact@celestialedge.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@celestiale.com</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                        <span>@celestiale</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-discord"></i>
+                        <span>Join Our Discord</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CelestialE. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -159,64 +166,117 @@
         <!-- Facebook -->
         <li style="--i: 0; --clr: #1877f2">
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank">
-            <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-facebook-f"></i>
             </a>
         </li>
 
         <!-- WhatsApp -->
         <li style="--i: 1; --clr: #25d366">
             <a href="https://wa.me/?text=Check%20this%20out%20https://yourwebsite.com" target="_blank">
-            <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-whatsapp"></i>
             </a>
         </li>
 
         <!-- Twitter (X) -->
         <li style="--i: 2; --clr: #1b1e21">
-            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check%20this%20out!" target="_blank">
-            <i class="fab fa-x-twitter"></i>
+            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check%20this%20out!"
+                target="_blank">
+                <i class="fab fa-x-twitter"></i>
             </a>
         </li>
 
         <!-- Reddit -->
         <li style="--i: 3; --clr: #ff5733">
-            <a href="https://www.reddit.com/submit?url=https://yourwebsite.com&title=Check%20this%20out" target="_blank">
-            <i class="fab fa-reddit-alien"></i>
+            <a href="https://www.reddit.com/submit?url=https://yourwebsite.com&title=Check%20this%20out"
+                target="_blank">
+                <i class="fab fa-reddit-alien"></i>
             </a>
         </li>
 
         <!-- LinkedIn -->
         <li style="--i: 4; --clr: #0a66c2">
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://yourwebsite.com" target="_blank">
-            <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-linkedin-in"></i>
             </a>
         </li>
 
-         <!-- Instagram (copy website link) -->
+        <!-- Instagram (copy website link) -->
         <li style="--i: 5; --clr: #c32aa3">
             <a href="#" onclick="copyLink(event)">
-            <i class="fab fa-instagram"></i>
+                <i class="fab fa-instagram"></i>
             </a>
         </li>
 
         <!-- Discord (copy website link) -->
         <li style="--i: 6; --clr: #5865f2">
             <a href="#" onclick="copyLink(event)">
-            <i class="fab fa-discord"></i>
+                <i class="fab fa-discord"></i>
             </a>
         </li>
-        </div>
+    </div>
 
     <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
     <script src="script.js"></script>
 
     <script>
-    function copyLink(e) {
-        e.preventDefault();
-        const link = "https://yourwebsite.com"; // Replace with your site
-        navigator.clipboard.writeText(link).then(() => {
-            alert("🔗 Website link copied! Paste it into Instagram or Discord to share.");
+        function copyLink(e) {
+            e.preventDefault();
+            const link = "https://yourwebsite.com"; // Replace with your site
+            navigator.clipboard.writeText(link).then(() => {
+                alert("🔗 Website link copied! Paste it into Instagram or Discord to share.");
+            });
+        }
+    </script>
+
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: 'AIzaSyAn8Qx38gqIFd6-bEcvVjtSJEVEuG4hTfg',
+            authDomain: 'finish-d274c.firebaseapp.com',
+            projectId: 'finish-d274c',
+            storageBucket: 'finish-d274c.firebasestorage.app',
+            messagingSenderId: '910258111060',
+            appId: '1:910258111060:web:97643ba83d4bc52dd9e3c1',
+            measurementId: 'G-46YRBMTVK3'
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Check authentication state and update UI
+        auth.onAuthStateChanged((user) => {
+            const authButton = document.getElementById('auth-button');
+            const dashboardButton = document.getElementById('dashboard-button');
+            const logoutButton = document.getElementById('logout-button');
+
+            if (user) {
+                // User is signed in
+                authButton.style.display = 'none';
+                dashboardButton.style.display = 'inline-block';
+                logoutButton.style.display = 'inline-block';
+            } else {
+                // User is signed out
+                authButton.style.display = 'inline-block';
+                dashboardButton.style.display = 'none';
+                logoutButton.style.display = 'none';
+            }
         });
-}
+
+        // Logout function
+        function logout() {
+            auth.signOut().then(() => {
+                // Redirect to signup page after logout
+                window.location.href = 'signup.html';
+            }).catch((error) => {
+                console.error('Error signing out:', error);
+            });
+        }
     </script>
 
 </body>
