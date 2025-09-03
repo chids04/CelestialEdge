@@ -156,31 +156,68 @@
             <ion-icon name="share-social"></ion-icon>
         </div>
 
+        <!-- Facebook -->
         <li style="--i: 0; --clr: #1877f2">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+            </a>
         </li>
+
+        <!-- WhatsApp -->
         <li style="--i: 1; --clr: #25d366">
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/?text=Check%20this%20out%20https://yourwebsite.com" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            </a>
         </li>
+
+        <!-- Twitter (X) -->
         <li style="--i: 2; --clr: #1b1e21">
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check%20this%20out!" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+            </a>
         </li>
+
+        <!-- Reddit -->
         <li style="--i: 3; --clr: #ff5733">
-            <a href="#"><i class="fab fa-reddit-alien"></i></a>
+            <a href="https://www.reddit.com/submit?url=https://yourwebsite.com&title=Check%20this%20out" target="_blank">
+            <i class="fab fa-reddit-alien"></i>
+            </a>
         </li>
+
+        <!-- LinkedIn -->
         <li style="--i: 4; --clr: #0a66c2">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://yourwebsite.com" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+            </a>
         </li>
+
+         <!-- Instagram (copy website link) -->
         <li style="--i: 5; --clr: #c32aa3">
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#" onclick="copyLink(event)">
+            <i class="fab fa-instagram"></i>
+            </a>
         </li>
+
+        <!-- Discord (copy website link) -->
         <li style="--i: 6; --clr: #5865f2">
-            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#" onclick="copyLink(event)">
+            <i class="fab fa-discord"></i>
+            </a>
         </li>
-    </div>
+        </div>
 
     <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
     <script src="script.js"></script>
+
+    <script>
+    function copyLink(e) {
+        e.preventDefault();
+        const link = "https://yourwebsite.com"; // Replace with your site
+        navigator.clipboard.writeText(link).then(() => {
+            alert("🔗 Website link copied! Paste it into Instagram or Discord to share.");
+        });
+}
+    </script>
 
 </body>
 
