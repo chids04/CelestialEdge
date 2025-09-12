@@ -4,10 +4,10 @@ import { ScrollingNFTs } from '@/components/landing/scrolling-nfts'
 import { CollapsibleFAQ } from '@/components/landing/collapsible-faq'
 
 export const Route = createFileRoute('/landing')({
-  component: RouteComponent,
+  component: LandingPage,
 })
 
-function RouteComponent() {
+function LandingPage() {
   return (
     // <div className="min-h-screen text-white bg-[radial-gradient(circle_at_center,_#1A1A1A_0%,_#000000_100%)]">
     <div className="min-h-screen text-white bg-[url('/backgrounds/dark.png')] bg-cover bg-black">
@@ -16,7 +16,7 @@ function RouteComponent() {
         <div className="md:w-1/2 flex flex-col text-white text-center md:text-left md:mb-0 md:mr-6">
           <img src="/landing/superrare.svg" />
           <Button className="bg-white text-black mt-10  text-2xl p-8 ml-auto mr-auto w-fit ">
-            Join now
+            Join us
           </Button>
         </div>
 
