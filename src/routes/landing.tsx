@@ -1,13 +1,20 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import { ScrollingNFTs } from '@/components/landing/scrolling-nfts'
 import { CollapsibleFAQ } from '@/components/landing/collapsible-faq'
 
 export const Route = createFileRoute('/landing')({
   component: LandingPage,
+  ssr: false,
 })
 
 function LandingPage() {
+  const navigate = useNavigate()
+
+  const handleJoinUs = () => {
+    navigate({ to: '/signup' })
+  }
+
   return (
     // <div className="min-h-screen text-white bg-[radial-gradient(circle_at_center,_#1A1A1A_0%,_#000000_100%)]">
     <div className="min-h-screen text-white bg-[url('/backgrounds/dark.png')] bg-cover bg-black">
@@ -15,7 +22,10 @@ function LandingPage() {
       <div className="container mx-auto p-8 flex flex-col gap-10 md:flex-row md:pt-20 pt-30 items-center">
         <div className="md:w-1/2 flex flex-col text-white text-center md:text-left md:mb-0 md:mr-6">
           <img src="/landing/superrare.svg" />
-          <Button className="bg-white text-black mt-10  text-2xl p-8 ml-auto mr-auto w-fit ">
+          <Button
+            className="bg-white text-black mt-10  text-2xl p-8 ml-auto mr-auto w-fit "
+            onClick={handleJoinUs}
+          >
             Join us
           </Button>
         </div>
@@ -60,7 +70,10 @@ function LandingPage() {
               <li>Early Access - Be the first to test our features</li>
               <li>Governance Perks - Help shape our marketplace</li>
             </ul>
-            <Button className="bg-white text-black text-2xl p-8 rounded-lg w-fit">
+            <Button
+              className="bg-white text-black text-2xl p-8 rounded-lg w-fit"
+              onClick={handleJoinUs}
+            >
               Join Now
             </Button>
           </div>
