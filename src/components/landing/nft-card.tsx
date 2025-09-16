@@ -19,7 +19,7 @@ export function NFTCard({
   return (
     <Card
       className={cn(
-        'group relative w-full max-w-sm overflow-hidden border-0 bg-[#141420] backdrop-blur-sm cursor-pointer transition-all duration-500 hover:scale-[1.02] celestial-nft-card',
+        'group relative w-full max-w-sm overflow-visible border-0 bg-[#141420] backdrop-blur-sm cursor-pointer transition-all duration-500 hover:scale-[1.02] celestial-nft-card',
         className,
       )}
     >
@@ -27,12 +27,12 @@ export function NFTCard({
       <div className="absolute inset-0 rounded-2xl border border-gray-800/40 group-hover:border-gray-700/60 transition-all duration-500" />
 
       {/* Subtle inner glow */}
-      <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-br from-gray-900/50 via-[#141420] to-gray-900/50" />
+      <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-br from-gray-900/50 via-[#141420] to-gray-900/50 overflow-hidden" />
 
       {/* Content container */}
-      <div className="relative z-10 p-5">
+      <div className="relative z-10 p-5 overflow-visible">
         {/* Image container */}
-        <div className="relative mb-5 overflow-hidden rounded-xl group-hover:shadow-2xl transition-all duration-500">
+        <div className="relative mb-5 overflow-hidden rounded-xl group-hover:shadow-2xl transition-all duration-500 z-10">
           {/* Dark overlay for depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
@@ -114,6 +114,7 @@ export function NFTCard({
             0 8px 40px rgba(0, 0, 0, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.02);
           backdrop-filter: blur(10px);
+          transform-origin: center center;
         }
 
         .celestial-nft-card:hover {
@@ -122,6 +123,7 @@ export function NFTCard({
             0 16px 60px rgba(0, 0, 0, 0.3),
             0 0 40px rgba(59, 130, 246, 0.03),
             inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          z-index: 10;
         }
 
         @media (prefers-reduced-motion: reduce) {

@@ -12,7 +12,7 @@ function LandingPage() {
   const navigate = useNavigate()
 
   const handleJoinUs = () => {
-    navigate({ to: '/signup' })
+    navigate({ to: '/waitlist' })
   }
 
   return (

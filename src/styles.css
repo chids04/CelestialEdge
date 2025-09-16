@@ -119,6 +119,18 @@ body {
   }
 }
 
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
 /* Animation utility classes */
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out;
@@ -154,6 +166,27 @@ body {
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Sparkle text effect */
+.sparkle-text {
+  /*background: linear-gradient(45deg, #ffffff, #3b82f6, #8b5cf6, #ffffff);*/
+  background-size: 300% 300%;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Responsive animation adjustments */

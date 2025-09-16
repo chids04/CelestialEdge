@@ -65,20 +65,6 @@ export function ScrollingNFTs() {
     }),
   ])
 
-  // Handle mouse enter - stop auto scroll
-  const handleMouseEnter = useCallback(() => {
-    const autoScroll = emblaApi?.plugins()?.autoScroll
-    if (!autoScroll) return
-    autoScroll.stop()
-  }, [emblaApi])
-
-  // Handle mouse leave - start auto scroll
-  const handleMouseLeave = useCallback(() => {
-    const autoScroll = emblaApi?.plugins()?.autoScroll
-    if (!autoScroll) return
-    autoScroll.play()
-  }, [emblaApi])
-
   // Initialize auto scroll when API is ready
   useEffect(() => {
     if (!emblaApi) return
@@ -99,17 +85,13 @@ export function ScrollingNFTs() {
   ]
 
   return (
-    <div className="relative w-full py-12">
+    <div className="relative w-full py-16">
       {/* Gradient overlays for fade effect */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-10 pointer-events-none" />
 
       {/* Embla Carousel */}
-      <div
-        className="embla overflow-hidden w-full"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div className="embla overflow-hidden w-full">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container flex -ml-4 md:-ml-6">
             {extendedNFTs.map((nft, index) => (
@@ -117,11 +99,11 @@ export function ScrollingNFTs() {
                 key={`nft-${index}`}
                 className="embla__slide flex-[0_0_280px] sm:flex-[0_0_320px] md:flex-[0_0_340px] lg:flex-[0_0_360px] min-w-0 pl-4 md:pl-6"
               >
-                <div className="celestial-nft-item group relative h-full">
+                <div className="celestial-nft-item group relative h-full py-8">
                   {/* Subtle glow effect on hover */}
                   <div className="absolute -inset-4 bg-gradient-to-r from-blue-900/0 via-purple-900/0 to-indigo-900/0 rounded-3xl opacity-0 group-hover:opacity-20 group-hover:from-blue-900/20 group-hover:via-purple-900/20 group-hover:to-indigo-900/20 transition-all duration-500 blur-xl" />
 
-                  <div className="transform transition-all duration-300 group-hover:scale-105 relative z-10">
+                  <div className="transform transition-all duration-300 group-hover:scale-[1.03] relative z-10">
                     <NFTCard {...nft} />
                   </div>
                 </div>
@@ -136,6 +118,7 @@ export function ScrollingNFTs() {
           will-change: transform;
           backface-visibility: hidden;
           transform: translateZ(0);
+          overflow: visible;
         }
 
         /* Embla carousel base styles */
@@ -145,6 +128,7 @@ export function ScrollingNFTs() {
 
         .embla__viewport {
           overflow: hidden;
+          padding: 0.5rem 0;
         }
 
         .embla__container {
