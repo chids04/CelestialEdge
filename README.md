@@ -1,2 +1,9 @@
-todo:
-use https://www.embla-carousel.com/examples/predefined/#auto-scroll for auto scrolling NFT cards instead of current impl
+## steps to run
+- clone repo
+- npm install
+- npm run dev
+
+## steps to build
+- clone repo
+- npm install
+- npm run build
